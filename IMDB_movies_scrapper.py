@@ -39,8 +39,3 @@ ratings = page2_soup.findAll("td", {"class": "ratingColumn imdbRating"})
 for i in containers:
     movie = [i.text, ratings[containers.index(i)].text]
     movies.append(movie)
-
-def sorts(sorting):
-    return(sorting[1])
-
-movies.sort(key=sorts)
