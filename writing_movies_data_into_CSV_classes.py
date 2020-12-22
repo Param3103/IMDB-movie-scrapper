@@ -35,8 +35,8 @@ class ManageData:
             for line in movies:
                 if len(line) != 0:
                     csv_writer.writerow(line)
-def sorts(sorting):
-    return(sorting[1])
+    def sorts(sorting):
+        return(sorting[1])
 movies = []
 website1 = ExtractData.open_page(my_url)
 website2 = ExtractData.open_page(my_url2)
@@ -44,7 +44,7 @@ for i in ExtractData.extract_data(website1):
     movies.append(i)
 for i in ExtractData.extract_data(website2):
     movies.append(i)
-movies.sort(key=sorts)
+movies.sort(key=ManageData.sorts)
 movies = ManageData.clean_data(movies)
 ManageData.write_to_csv(movies, 'IMDBmovies.txt')
 print('done')
