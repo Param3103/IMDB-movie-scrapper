@@ -22,6 +22,7 @@ class ExtractData:
             movie = [i.text, ratings[containers.index(i)].text]
             movies.append(movie)
         return(movies)
+class ManageData:
     def clean_data(movies):
         for movie in movies:
             for i in movie:
@@ -44,6 +45,6 @@ for i in ExtractData.extract_data(website1):
 for i in ExtractData.extract_data(website2):
     movies.append(i)
 movies.sort(key=sorts)
-movies = ExtractData.clean_data(movies)
-ExtractData.write_to_csv(movies, 'IMDBmovies.txt')
+movies = ManageData.clean_data(movies)
+ManageData.write_to_csv(movies, 'IMDBmovies.txt')
 print('done')
