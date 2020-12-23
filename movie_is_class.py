@@ -54,6 +54,7 @@ class ManageData:
         with open(filename, 'w') as file:
             csv_writer = csv.writer(file)
             for line in movies:
+                print(line)
                 csv_writer.writerow(line)
 
     def sorts(sorting):
@@ -67,5 +68,4 @@ for i in ExtractData.extract_data(website2):
     movies.append(i)
 movies.sort(key=ManageData.sorts)
 movies = ManageData.remove_line_break(movies)
-print(movies)
 ManageData.write_to_csv(movies, 'IMDBmovies.csv')
