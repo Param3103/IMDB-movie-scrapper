@@ -29,7 +29,9 @@ class ExtractData:
         containers = page_soup.findAll("td", {"class": "titleColumn"})
         ratings = page_soup.findAll("td", {"class": "ratingColumn imdbRating"})
         for container in containers:
-            movie = [container.text, ratings[containers.index(container)].text]
+            name = container.text[0: -6]
+            year = container.text[-6: -2]
+            movie = [name, year, ratings[containers.index(container)].text]
             movies.append(movie)
         return(movies)
 
@@ -39,7 +41,7 @@ class ManageData:
         for movie in movies:
             for i in movie:
                 movie[movie.index(i)] = regex.sub('\n', '', i)
-            movie[0] = movie[0][14:-1] + ')'
+            movie[0] = movie[0][14:-1]
         return(movies)
 
     def write_to_csv(movies, filename):
@@ -60,5 +62,6 @@ for i in ExtractData.extract_data(website2):
     movies.append(i)
 movies.sort(key=ManageData.sorts)
 movies = ManageData.remove_line_break(movies)
-print(movies)
+for movie in movies:
+    print(movie)
 ManageData.write_to_csv(movies, 'IMDBmovies.csv')

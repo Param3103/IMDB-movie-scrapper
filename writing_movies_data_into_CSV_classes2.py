@@ -42,6 +42,12 @@ class ManageData:
                 movie[movie.index(i)] = regex.sub('\n', '', i)
             movie[0] = movie[0][14:-1] + ')'
         return(movies)
+    def remove_start_space(movies):
+        for movie in movies:
+            if movie[0][0] == ' ':
+                movie[0].remove(movie[0][0])
+            else:
+                continue
 
     def write_to_csv(movies, filename):
         with open(filename, 'w') as file:
