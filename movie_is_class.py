@@ -40,7 +40,7 @@ class ManageData:
         for movie in movies:
             movie.released_year = regex.sub('\n', '', movie.released_year)
             movie.name = regex.sub('\n', '', movie.name)
-            movie.rating= regex.sub('\n', '', movie.rating)
+            movie.rating = regex.sub('\n', '', movie.rating)
             movie.name = movie.name[14:-1]
         return(movies)
     def remove_start_space(movies):
@@ -68,4 +68,8 @@ for i in ExtractData.extract_data(website2):
     movies.append(i)
 movies.sort(key=ManageData.sorts)
 movies = ManageData.remove_line_break(movies)
+for movie in movies:
+    print(movie.name)
+    print(movie.released_year)
+    print(movie.rating)
 ManageData.write_to_csv(movies, 'IMDBmovies.csv')
