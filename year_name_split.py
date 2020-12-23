@@ -30,8 +30,9 @@ class ExtractData:
         ratings = page_soup.findAll("td", {"class": "ratingColumn imdbRating"})
         for container in containers:
             name = container.text[0: -6]
+            name = name[1: -1]
             year = container.text[-6: -2]
-            movie = [name, year, ratings[containers.index(container)].text]
+            movie = Movie(year, name, ratings[containers.index(container)].text)
             movies.append(movie)
         return(movies)
 
@@ -39,8 +40,10 @@ class ManageData:
     # remove \n tags in html code that indicates to print in next line but we do not need them
     def remove_line_break(movies):
         for movie in movies:
-            for i in movie:
-                movie[movie.index(i)] = regex.sub('\n', '', i)
+            movie[movie.index(i)] = regex.sub('\n', '', i)
+            movie.released_year = regex.sub('\n', '', movie.released_year)
+            movie.name = regex.sub('\n', '', movie.name)
+            movie.rating= regex.sub('\n', '', movie.rating)
             movie[0] = movie[0][14:-1]
         return(movies)
 
@@ -52,7 +55,7 @@ class ManageData:
                     csv_writer.writerow(line)
 
     def sorts(sorting):
-        return(sorting[1])
+        return(sorting.rating)
 movies = []
 website1 = ExtractData.open_page(hindi_movie_url)
 website2 = ExtractData.open_page(english_movie_url)
@@ -63,6 +66,5 @@ for i in ExtractData.extract_data(website2):
 movies.sort(key=ManageData.sorts)
 movies = ManageData.remove_line_break(movies)
 for movie in movies:
-    movie[0] = movie[0][1: -1] # removes space at start of movie
     print(movie)
 ManageData.write_to_csv(movies, 'IMDBmovies.csv')
