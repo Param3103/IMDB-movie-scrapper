@@ -44,8 +44,8 @@ class ManageData:
         return(movies)
     def remove_start_space(movies):
         for movie in movies:
-            while (movie[0].split())[0] == ' ':
-                movie[0] = movie[0][1:-1]
+            while (movie.released_name.split())[0] == ' ':
+                movie.released_name = movie.released_name[1:-1]
 
     def write_to_csv(movies, filename):
         with open(filename, 'w') as file:
