@@ -41,7 +41,7 @@ class ManageData:
             movie.released_year = regex.sub('\n', '', movie.released_year)
             movie.name = regex.sub('\n', '', movie.name)
             movie.rating = regex.sub('\n', '', movie.rating)
-            movie.name = movie.name[14:-1]
+            movie.name = movie.name[13:-1]
         return(movies)
     def remove_start_space(movies):
         for movie in movies:
