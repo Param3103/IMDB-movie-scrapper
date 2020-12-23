@@ -54,8 +54,9 @@ class ManageData:
         with open(filename, 'w') as file:
             csv_writer = csv.writer(file)
             for movie in movies:
-                print(movie)
-                csv_writer.writerow(str(movie))
+                csv_writer.writerow(str(movie.released_year))
+                csv_writer.writerow(str(movie.name))
+                csv_writer.writerow(str(movie.rating))
 
     def sorts(sorting):
         return(sorting.rating)
