@@ -27,8 +27,7 @@ class Testing_Project(unittest.TestCase):
             self.assertTrue(movie[1] <= data[data.index(movie) + 1][1])
     """
     def test_if_sorted_name(self):
-        for movie in data[0: len(data) - 1]:
-            self.assertTrue(movie[1] <= data[data.index(movie) + 1][1])
+            self.assertTrue(data == sorted(data[0])
     def test_if_sorted_released_year(self):
         for movie in data[0: len(data) - 1]:
             self.assertTrue(movie[1] <= data[data.index(movie) + 1][1])
