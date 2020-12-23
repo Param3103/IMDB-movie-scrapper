@@ -59,7 +59,7 @@ class ManageData:
                 csv_writer.writerow(str(movie.rating))
 
     def sorts(sorting):
-        return(sorting.rating) # can sort by rating/name/year, just change here
+        return(sorting.released_year) # can sort by rating/name/released_year, just change here
 movies = []
 website1 = ExtractData.open_page(hindi_movie_url)
 website2 = ExtractData.open_page(english_movie_url)

@@ -22,8 +22,16 @@ class Testing_Project(unittest.TestCase):
         for movie in data[0: len(data)]:
             self.assertEqual(len(movie), 2)
     #tests if movies have been sorted according to rating
-    def test_if_sorted(self):
+    def test_if_sorted_rating(self):
         for movie in data[0: len(data) - 1]:
             self.assertTrue(movie[1] <= data[data.index(movie) + 1][1])
+    """
+    def test_if_sorted_name(self):
+        for movie in data[0: len(data) - 1]:
+            self.assertTrue(movie[1] <= data[data.index(movie) + 1][1])
+    def test_if_sorted_released_year(self):
+        for movie in data[0: len(data) - 1]:
+            self.assertTrue(movie[1] <= data[data.index(movie) + 1][1])
+    """
 if __name__ == '__main__':
     unittest.main()
