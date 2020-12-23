@@ -28,7 +28,7 @@ class ExtractData:
         containers = page_soup.findAll("td", {"class": "titleColumn"})
         ratings = page_soup.findAll("td", {"class": "ratingColumn imdbRating"})
         for container in containers:
-            name = container.text[3: -6]
+            name = container.text[2: -6]
             year = container.text[-6: -2]
             movie = Movie(year, name, ratings[containers.index(container)].text)
             movies.append(movie)
