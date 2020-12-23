@@ -30,7 +30,7 @@ class ExtractData:
         containers = page_soup.findAll("td", {"class": "titleColumn"})
         ratings = page_soup.findAll("td", {"class": "ratingColumn imdbRating"})
         for container in containers:
-            name = container.text[0: -6]
+            name = container.text[3: -6]
             year = container.text[-6: -2]
             movie = [name, year, ratings[containers.index(container)].text]
             movies.append(movie)
@@ -42,7 +42,7 @@ class ManageData:
         for movie in movies:
             for i in movie:
                 movie[movie.index(i)] = regex.sub('\n', '', i)
-            movie[0] = movie[0][14:-1] + ')'
+            movie[0] = movie[0][14:-1]
         return(movies)
     def remove_start_space(movies):
         for movie in movies:
