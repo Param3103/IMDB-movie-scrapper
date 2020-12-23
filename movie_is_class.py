@@ -58,7 +58,7 @@ class ManageData:
                     csv_writer.writerow(line)
 
     def sorts(sorting):
-        return(sorting[1])
+        return(sorting.rating)
 movies = []
 website1 = ExtractData.open_page(hindi_movie_url)
 website2 = ExtractData.open_page(english_movie_url)
