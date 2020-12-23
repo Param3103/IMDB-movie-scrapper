@@ -63,5 +63,6 @@ for i in ExtractData.extract_data(website2):
 movies.sort(key=ManageData.sorts)
 movies = ManageData.remove_line_break(movies)
 for movie in movies:
+    movie[0] = movie[0][1: -1] # removes space at start of movie
     print(movie)
 ManageData.write_to_csv(movies, 'IMDBmovies.csv')
