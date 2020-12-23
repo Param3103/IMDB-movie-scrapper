@@ -45,7 +45,7 @@ class ManageData:
     def remove_start_space(movies):
         for movie in movies:
             i = 0
-            while movie[0][i] != ' ':
+            while movie[0][i] == ' ':
                 movie[0][i] = ''
                 i += 1
 
