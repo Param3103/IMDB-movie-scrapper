@@ -54,8 +54,7 @@ class ManageData:
         with open(filename, 'w') as file:
             csv_writer = csv.writer(file)
             for line in movies:
-                if len(line) != 0:
-                    csv_writer.writerow(line)
+                csv_writer.writerow(line)
 
     def sorts(sorting):
         return(sorting.rating)
