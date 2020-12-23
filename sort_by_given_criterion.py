@@ -42,10 +42,12 @@ class ManageData:
             movie.rating = regex.sub('\n', '', movie.rating)
             movie.name = movie.name[13:-1]
         return(movies)
-    def remove_start_space(movies): # still working on this
+
+    def remove_start_space(movies):
         for movie in movies:
             movie.name = movie.name.strip()
         return(movies)
+
     def write_to_csv(movies, filename):
         with open(filename, 'w') as file:
             csv_writer = csv.writer(file)
@@ -54,8 +56,8 @@ class ManageData:
                 csv_writer.writerow(str(movie.name))
                 csv_writer.writerow(str(movie.rating))
 
-    def sorts(sorting):
-        return(sorting.rating) # can sort by rating/name/year, just change here
+    def sorts(movie):
+        return(movie.rating) # can sort by rating/name/year, just change here
 movies = []
 website1 = ExtractData.open_page(hindi_movie_url)
 website2 = ExtractData.open_page(english_movie_url)
@@ -66,8 +68,10 @@ for i in ExtractData.extract_data(website2):
 movies.sort(key=ManageData.sorts)
 movies = ManageData.remove_line_break(movies)
 movies = ManageData.remove_start_space(movies)
+
 for movie in movies:
     print(movie.name)
     print(movie.released_year)
     print(movie.rating)
+
 ManageData.write_to_csv(movies, 'IMDBmovies.csv')
