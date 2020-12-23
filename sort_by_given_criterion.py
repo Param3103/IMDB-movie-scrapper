@@ -42,10 +42,9 @@ class ManageData:
             movie.rating = regex.sub('\n', '', movie.rating)
             movie.name = movie.name[13:-1]
         return(movies)
-    def remove_start_space(movies):
+    def remove_start_space(movies): # still working on this
         for movie in movies:
-            while movie.name[0][0] == ' ':
-                movie.name[0] = movie.name[0][1:-1]
+            movie.name = movie.name.strip()
         return(movies)
     def write_to_csv(movies, filename):
         with open(filename, 'w') as file:
