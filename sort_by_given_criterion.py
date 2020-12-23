@@ -52,9 +52,7 @@ class ManageData:
         with open(filename, 'w') as file:
             csv_writer = csv.writer(file)
             for movie in movies:
-                csv_writer.writerow(str(movie.released_year))
-                csv_writer.writerow(str(movie.name))
-                csv_writer.writerow(str(movie.rating))
+                csv_writer.writerow([movie.name, movie.released_year, movie.rating])
 
     def sorts(movie):
         return(movie.rating) # can sort by rating/name/year, just change here
@@ -68,10 +66,5 @@ for i in ExtractData.extract_data(website2):
 movies.sort(key=ManageData.sorts)
 movies = ManageData.remove_line_break(movies)
 movies = ManageData.remove_start_space(movies)
-
-for movie in movies:
-    print(movie.name)
-    print(movie.released_year)
-    print(movie.rating)
 
 ManageData.write_to_csv(movies, 'IMDBmovies.csv')
