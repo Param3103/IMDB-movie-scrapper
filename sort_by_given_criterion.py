@@ -46,6 +46,8 @@ class ManageData:
         for movie in movies:
             while (movie.released_year.split())[0] == ' ':
                 movie.released_year = movie.released_year[1:-1]
+            while (movie.name.split())[0] == ' ':
+                movie.name = movie.name[1:-1]
         return(movies)
     def write_to_csv(movies, filename):
         with open(filename, 'w') as file:
