@@ -1,6 +1,6 @@
 import unittest
 import csv
-from main import movies
+from src.main import movies
 import re
 data = []
 with open('IMDBmovies.csv', 'r') as file:
