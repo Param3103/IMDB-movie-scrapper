@@ -22,5 +22,5 @@ class ManageData:
                 csv_writer.writerow([movie.name, movie.released_year, movie.rating])
 
     def sorts(movie):
-        return(movie.rating) # can sort by rating/name/year, just change here
+        return(movie.year) # can sort by rating/name/year, just change here
 ManageData
