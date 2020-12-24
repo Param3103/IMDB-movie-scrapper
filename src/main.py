@@ -15,7 +15,7 @@ class Main:
         movies.sort(key=ManageData.sorts)
         movies = ManageData.remove_line_break(movies)
         movies = ManageData.remove_start_space(movies)
-        print(movies)
+        print(movies.name)
         ManageData.write_to_csv(movies, 'IMDBmovies.csv')
 
 Main.process
