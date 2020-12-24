@@ -11,7 +11,7 @@ with open('IMDBmovies.csv', 'r') as file:
 class Testing_Project(unittest.TestCase):
     #tests if all movies have been deposited into csv file
     def test_if_deposited(self):
-        for movie in movies:
+        for movie in self.movies:
             for i in movie:
                 movie[movie.index(i)] = re.sub('\n', '', i)
             movie[0] = movie[0][14:-1] + ')'
