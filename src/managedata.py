@@ -23,3 +23,4 @@ class ManageData:
 
     def sorts(movie):
         return(movie.rating) # can sort by rating/name/year, just change here
+ManageData
