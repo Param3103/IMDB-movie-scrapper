@@ -16,4 +16,4 @@ class Main:
         print(movies)
         ManageData.write_to_csv(movies, 'IMDBmovies.csv')
 
-Main.process
+Main
