@@ -3,7 +3,7 @@ import csv
 from IMDB_movies_rating_sorted import movies
 import re
 data = []
-with open('../IMDBmovies.csv', 'r') as file:
+with open('IMDBmovies.csv', 'r') as file:
     csv_reader = csv.reader(file)
 
     for line in csv_reader:
