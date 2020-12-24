@@ -22,3 +22,4 @@ class ExtractData:
             movie = Movie(year, name, ratings[containers.index(container)].text)
             movies.append(movie)
         return(movies)
+ExtractData
