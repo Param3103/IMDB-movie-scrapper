@@ -1,3 +1,4 @@
+from urllib.request import urlopen
 class ExtractData:
 
     def open_page(url):
