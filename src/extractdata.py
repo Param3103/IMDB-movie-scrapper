@@ -1,6 +1,8 @@
 from urllib.request import urlopen
 import bs4
 from bs4 import BeautifulSoup as soup
+from src.movie import Movie
+
 class ExtractData:
 
     def open_page(url):
