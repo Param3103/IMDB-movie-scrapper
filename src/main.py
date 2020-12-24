@@ -16,7 +16,7 @@ class Main:
         movies = ManageData.remove_start_space(movies)
         print(movies)
         for movie in movies:
-            print(movie.name)
+           print(movie.name)
         ManageData.write_to_csv(movies, 'IMDBmovies.csv')
 
 Main.process(None)
