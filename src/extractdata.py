@@ -1,4 +1,6 @@
 from urllib.request import urlopen
+import bs4
+from bs4 import BeautifulSoup as soup
 class ExtractData:
 
     def open_page(url):
