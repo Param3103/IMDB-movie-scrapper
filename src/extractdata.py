@@ -1,7 +1,7 @@
 from urllib.request import urlopen
 import bs4
 from bs4 import BeautifulSoup as soup
-from movie import Movie
+from src.movie import Movie
 
 class ExtractData:
 
