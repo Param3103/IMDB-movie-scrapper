@@ -1,6 +1,6 @@
 import unittest
 import csv
-from IMDB_movies_rating_sorted import movies
+from main import movies
 import re
 data = []
 with open('IMDBmovies.csv', 'r') as file:
